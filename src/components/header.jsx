@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Header(){
     return(
-        <header className="bg-white text-black flex  items-center shadow-md w-screen p-5">
+        <header className="bg-white text-black flex items-center shadow-md w-full p-5 fixed top-0 z-50">
             <span className="text-6xl font-josefin font-light pl-10">José & Vitoria</span>
             <nav className="flex space-x-6 ml-auto">
                 <a href="" className="font-josefin text-2xl font-bold">Home</a>
