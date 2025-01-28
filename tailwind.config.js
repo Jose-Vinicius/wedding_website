@@ -21,6 +21,7 @@ export default {
       "white": "#FFFFFF",
       "purple": "#ABABF3",
       "old_paper": "#FDF5E6",
+      "black": "#000000",
     },
     
   },
