@@ -15,6 +15,7 @@ export default {
         "josefin":["Josefin Slab", "sans-serif"],
         "amsterdan":["Amsterdam Four", "sans-serif"],
         "adamina": ["Adamina", "sans-serif"],
+        "meaCulpa": ["Mea Culpa", "sans-serif"],
       }
     },
     colors:{
