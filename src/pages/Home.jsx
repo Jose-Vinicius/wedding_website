@@ -3,6 +3,7 @@ import Header from "../components/header";
 import Footer from "../components/Footer";
 import Embed_maps from "../components/Embed_maps";
 import Card from "../components/Card";
+import Clock from "../components/Clock";
 
 
 export function Home() {
@@ -17,22 +18,7 @@ export function Home() {
                 </section>
 
                 <section id="counter" className="text-center w-full bg-white h-96 flex justify-center items-center gap-x-[50px]">
-                    <div className="flex flex-col items-center">
-                        <span className="font-adamina text-5xl">235</span>
-                        <span className="font-thin text-3xl">Dias</span>
-                    </div>
-                    <div className="flex flex-col items-center">
-                        <span className="font-adamina text-5xl">23</span>
-                        <span className="font-thin text-3xl">Horas</span>
-                    </div>
-                    <div className="flex flex-col items-center">
-                        <span className="font-adamina text-5xl">56</span>
-                        <span className="font-thin text-3xl">Minutos</span>
-                    </div>
-                    <div className="flex flex-col items-center">
-                        <span className="font-adamina text-5xl">32</span>
-                        <span className="font-thin text-3xl">Segundos</span>
-                    </div>
+                    <Clock />
                 </section>
 
                 <section id="our_history" className="w-full bg-old_paper h-full flex flex-col justify-center items-center">
