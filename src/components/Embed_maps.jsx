@@ -9,9 +9,13 @@ const maptype = "satellite"
 
 export default function Embed_maps(){
     return(
-        <iframe
-            width="1238"
-            height="469"
+        <iframe 
+            className="
+                sm:size-dvh 
+                md:w-[700px] 
+                md:h-screen py-10
+                lg:w-[900px]
+            "
             loading="lazy"
             allowfullscreen
             referrerpolicy="no-referrer-when-downgrade"

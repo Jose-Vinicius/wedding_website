@@ -6,7 +6,7 @@ export default function OurHistory(){
     return(
         <>
             <Header />
-                <main s>
+                <main className="w-full flex flex-col text-center justify-center flex-grow pt-[200px] bg-old_paper">
                     <h1 className="font-amsterdan font-semi-bold text-7xl pb-8">Nossa historia</h1>
                     <div className="w-full flex justify-around py-5">
                         <div className="max-w-xl flex justify-center flex-col text-left">

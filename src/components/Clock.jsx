@@ -34,25 +34,28 @@ export default function Clock(){
 
     return(
         <>
-            <div >
-                <span className="font-thin text-3xl ">{timeLeft.isPast ? "Já se passarão" : "Faltam"}</span>
+            <div>
+                <span className="font-thin md:text-3xl text-2xl">{timeLeft.isPast ? "Já se passarão" : "Faltam"}</span>
             </div>
-            <div className="flex flex-col items-center">
-                <span className="font-adamina text-5xl">{dateTreatment(timeLeft.days)}</span>
-                <span className="font-thin text-3xl">Dias</span>
+            <div className="flex gap-4 md:gap-10">
+                <div className="flex flex-col items-center">
+                    <span className="font-adamina md:text-5xl text-2xl">{dateTreatment(timeLeft.days)}</span>
+                    <span className="font-thin md:text-3xl sm:text-1xl">Dias</span>
+                </div>
+                <div className="flex flex-col items-center">
+                    <span className="font-adamina md:text-5xl text-2xl">{dateTreatment(timeLeft.hours)}</span>
+                    <span className="font-thin md:text-3xl sm:text-1xl">Horas</span>
+                </div>
+                <div className="flex flex-col items-center">
+                    <span className="font-adamina md:text-5xl text-2xl">{dateTreatment(timeLeft.minutes)}</span>
+                    <span className="font-thin md:text-3xl sm:text-1xl">Minutos</span>
+                </div>
+                <div className="flex flex-col items-center">
+                    <span className="font-adamina md:text-5xl text-2xl">{dateTreatment(timeLeft.seconds)}</span>
+                    <span className="font-thin md:text-3xl sm:text-1xl">Segundos</span>
+                </div>
             </div>
-            <div className="flex flex-col items-center">
-                <span className="font-adamina text-5xl">{dateTreatment(timeLeft.hours)}</span>
-                <span className="font-thin text-3xl">Horas</span>
-            </div>
-            <div className="flex flex-col items-center">
-                <span className="font-adamina text-5xl">{dateTreatment(timeLeft.minutes)}</span>
-                <span className="font-thin text-3xl">Minutos</span>
-            </div>
-            <div className="flex flex-col items-center">
-                <span className="font-adamina text-5xl">{dateTreatment(timeLeft.seconds)}</span>
-                <span className="font-thin text-3xl">Segundos</span>
-            </div>
+            
         </>
     )
 }
