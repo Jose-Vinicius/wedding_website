@@ -4,6 +4,7 @@ import Footer from "../components/Footer";
 import Embed_maps from "../components/Embed_maps";
 import Card from "../components/Card";
 import Clock from "../components/Clock";
+import { Link } from "react-router-dom";
 
 export function Home() {
     return (
@@ -16,12 +17,12 @@ export function Home() {
                     <p className="font-josefin font-light text-xl sm:text-3xl md:text-4xl py-4 sm:py-6">22 de Novembro de 2025</p>
                 </section>
 
-                <section id="counter" className="text-center w-full bg-white min-h-[150px] md:min-h-[350px]  flex flex-col sm:flex-row justify-center items-center gap-4 md:gap-10 px-4">
+                <section id="counter" className="text-center w-full bg-white min-h-[250px] md:min-h-[350px]  flex flex-col sm:flex-row justify-center items-center gap-4 md:gap-10 px-4">
                     <Clock />
                 </section>
 
-                <section id="our_history" className="w-full bg-old_paper flex flex-col justify-center items-center py-10 sm:py-20 px-4">
-                    <h2 className="font-amsterdan text-4xl sm:text-6xl py-6 sm:py-10">Nossa história</h2>
+                <section id="our_history" className="w-full bg-old_paper md:min-h-[400px] flex flex-col justify-center items-center py-5 px-4">
+                    <h2 className="font-amsterdan text-4xl sm:text-6xl pt-10 pb-20 md:py-25">Nossa história</h2>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                         <div className="bg-white p-6 sm:p-8 flex flex-col items-start shadow-xl rounded-lg">
                             <h2 className="text-lg sm:text-xl font-josefin font-light text-center pb-3.5">Como nos conhecemos</h2>
@@ -57,9 +58,11 @@ export function Home() {
                 </section>
 
                 <section className="w-full bg-white py-10 sm:py-20 flex flex-wrap items-center justify-center gap-6 px-4">
-                    <Card text="Início da cerimônia" title="Hora do evento" icon="clock.png"/>
+                    <Card text="Início da cerimônia" subText="17:30" title="Hora do evento" icon="clock.png"/>
                     <Card text="Salão de festas ao lado" title="Local da recepção" icon="party.png"/>
-                    <Card text="Inspire-se aqui" title="Sugestão de vestimenta" icon="wear.png"/>
+                    <Link to="/dress">
+                        <Card text="Inspire-se aqui" title="Sugestão de vestimenta" icon="wear.png"/>
+                    </Link>
                 </section>
             </main>
             <Footer />

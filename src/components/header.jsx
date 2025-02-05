@@ -7,7 +7,7 @@ export default function Header() {
     const [menuOpen, setMenuOpen] = useState(false);
 
     return (
-        <header className="bg-white text-black flex items-center justify-between shadow-md w-screen p-5 fixed top-0 z-50">
+        <header className="bg-white text-black h-24 md:h-28 flex items-center justify-between shadow-md w-screen p-5 fixed top-0 z-50">
             
             <span className="text-3xl md:text-6xl font-josefin font-light pl-5">José & Vitoria</span>
             

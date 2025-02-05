@@ -11,8 +11,8 @@ export default function Gifts(){
             <Header/>
             <main className="w-full flex flex-col text-center justify-center flex-grow pt-[150px] bg-old_paper">
                 <div>
-                    <h1 className="font-josefin font-regular text-7xl">Sugestão de presentes</h1>
-                    <p className="font-josefin font-regular text-2xl pt-5">A lista abaixo somente é uma sugestão dos presentes, fica a seu critério dar o que seu coração desejar</p>
+                    <h1 className="font-josefin font-regular text-4xl md:text-7xl">Sugestão de presentes</h1>
+                    <p className="font-josefin font-regular text-1xl md:text-2xl pt-5 px-10">A lista abaixo somente é uma sugestão dos presentes, fica a seu critério dar o que seu coração desejar</p>
                 </div>
                 <section className="w-full flex flex-row justify-center flex-wrap gap-10 my-20">
                      <GiftCard src={"https://m.media-amazon.com/images/I/61PsCXKcCGL._AC_SL1000_.jpg"} alt={"Alexa"} title={"Alexa"} price={"2099,00"} giftLink={"https://a.co/d/7gaYB4I"} moneyLink={"https://www.mercadopago.com.br/"}/>
