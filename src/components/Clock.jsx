@@ -35,7 +35,7 @@ export default function Clock(){
     return(
         <>
             <div>
-                <span className="font-thin md:text-3xl text-2xl">{timeLeft.isPast ? "Já se passarão" : "Faltam"}</span>
+                <span className="font-thin md:text-3xl text-2xl">{timeLeft.isPast ? "Estamos casados há" : "Faltam"}</span>
             </div>
             <div className="flex gap-4 md:gap-10">
                 <div className="flex flex-col items-center">

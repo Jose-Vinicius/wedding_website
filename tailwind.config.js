@@ -21,6 +21,7 @@ export default {
     colors:{
       "white": "#FFFFFF",
       "purple": "#ABABF3",
+      "d-purple": "#8254E0",
       "old_paper": "#FDF5E6",
       "black": "#000000",
     },
