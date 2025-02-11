@@ -2,10 +2,12 @@ import React from "react";
 
 import Header from "../components/header";
 import Footer from "../components/Footer";
+import PageTitle from "../components/PageTitle";
 
 export default function Dress(){
     return(
         <>
+            <PageTitle title="Sugestão de vestimentas" />
             <Header />
             <main className="w-full flex flex-grow pt-[200px] pb-[50px] bg-old_paper justify-around text-center">
                 <div className="">

@@ -1,14 +1,17 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 import Header from "../components/header";
 import Footer from "../components/Footer";
 import Embed_maps from "../components/Embed_maps";
 import Card from "../components/Card";
 import Clock from "../components/Clock";
-import { Link } from "react-router-dom";
+import PageTitle from "../components/PageTitle";
 
 export function Home() {
     return (
         <>
+            <PageTitle title="Home" />
             <Header />
             <main className="flex-grow pt-[100px]">
 

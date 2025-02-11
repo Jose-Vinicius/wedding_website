@@ -1,10 +1,12 @@
 import React from "react";
 import Header from "../components/header";
 import Footer from "../components/Footer";
+import PageTitle from "../components/PageTitle";
 
 export default function OurHistory(){
     return(
         <>
+            <PageTitle title="Nossa historia" />
             <Header />
                 <main className="w-full flex flex-col text-center justify-center flex-grow pt-[150px] md:pt-[200px] bg-old_paper">
                     <h1 className="font-amsterdan font-semi-bold text-5xl md:text-7xl pb-8">Nossa historia</h1>

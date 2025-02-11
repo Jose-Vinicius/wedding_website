@@ -2,12 +2,14 @@ import React from "react";
 
 import Header from "../components/header";
 import Footer from "../components/Footer";
+import PageTitle from "../components/PageTitle";
 
 import Button from "../components/Button";
 
 export default function Gifts(){
     return(
         <>
+            <PageTitle title="Sugestão de presentes" />
             <Header/>
             <main className="w-full flex flex-col text-center justify-center flex-grow pt-[150px] bg-old_paper">
                 <div>

@@ -2,6 +2,7 @@ import React, {useState} from "react";
 
 import Header from "../components/header";
 import Footer from "../components/Footer";
+import PageTitle from "../components/PageTitle";
 
 import { getGuest, confirmPresence } from "../services/baserowService";
 
@@ -82,7 +83,8 @@ export default function ConfirmPresence(){
     }
 
     return(
-        <> 
+        <>
+            <PageTitle title="Confirmação de presença" />
             <Header/>
             <main className="w-full flex flex-col pt-[200px] pb-[300px] bg-old_paper justify-center text-center">
                 <h1 className="font-amsterdan font-regular text-6xl pb-20" >Confirme sua presença</h1>
