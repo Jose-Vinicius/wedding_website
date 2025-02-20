@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 
-export default function Header() {
+export default function Header(modalOpen) {
     const location = useLocation();
     const [menuOpen, setMenuOpen] = useState(false);
 
     return (
-        <header className="bg-white text-black h-24 md:h-28 flex items-center justify-between shadow-md w-screen p-5 fixed top-0 z-50">
+        <header className={`bg-white text-black h-24 md:h-28 flex items-center justify-between shadow-md w-screen p-5 fixed top-0 ${!modalOpen ? 'z-50':'z-0'}`}>
             
             <span className="text-3xl md:text-6xl font-josefin font-light pl-5">José & Vitoria</span>
             

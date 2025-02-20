@@ -13,7 +13,6 @@ export default function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Navigate to="/home" replace />}/>
-
           <Route path="/home" element={<Home />}/>
           <Route path="/dress" element={<Dress />}/>
           <Route path="/gifts" element={<Gifts />}/>

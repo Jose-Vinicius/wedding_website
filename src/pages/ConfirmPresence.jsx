@@ -6,10 +6,14 @@ import PageTitle from "../components/PageTitle";
 
 import { getGuest, confirmPresence } from "../services/baserowService";
 
+import { randomMessage } from "../services/confirmationMessage";
+
 export default function ConfirmPresence(){
     const [phone, setPhone] = useState("")
     const [guest, setGuest] = useState(null)
     const [message, setMessage] = useState("")
+    const [alert, setAlert] = useState("")
+    const [confirmationMessage, setConfirmationMessage] = useState("")
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [confirmations, setConfirmations] = useState(false);
 
@@ -17,7 +21,7 @@ export default function ConfirmPresence(){
         const result = await getGuest(phone)
 
         if(result){
-            const transfomedGuest = {
+            const transformedGuest = {
                 id: result[0].id,
                 guest: result[0].guest,
                 phone: result[0].phone_number,
@@ -30,7 +34,7 @@ export default function ConfirmPresence(){
                 ]. filter(item => item)
             }
 
-            setGuest(transfomedGuest);
+            setGuest(transformedGuest);
             setPhone("");
             setMessage("");
             setIsModalOpen(true);
@@ -76,6 +80,8 @@ export default function ConfirmPresence(){
                 closeModal()
             }
 
+            Object.values(confirmations).includes(true) ? setConfirmationMessage(randomMessage()) : ""
+
             if(!response){
                 console.log("erro ao confirmar presença")
             }
@@ -85,27 +91,39 @@ export default function ConfirmPresence(){
     return(
         <>
             <PageTitle title="Confirmação de presença" />
-            <Header/>
-            <main className="w-full flex flex-col pt-[200px] pb-[300px] bg-old_paper justify-center text-center">
-                <h1 className="font-amsterdan font-regular text-6xl pb-20" >Confirme sua presença</h1>
-                <div className="w-full flex flex-col justify-center items-center pt-20">
+            <Header modalOpen={isModalOpen}/>
+            <main className="w-full flex flex-col pt-[150px] md:pt-[200px] pb-[200px] md:pb-[300px] bg-old_paper justify-center text-center">
+                <h1 className="font-amsterdan font-regular text-4xl md:text-6xl pb-20" >Confirme sua presença</h1>
+                <div className="w-full flex flex-col justify-center items-center pt-20 md:pt-20">
                     <input 
                         type="text" 
                         name="confirmPresence" 
                         id="confirmPresence" 
-                        className="w-8xl text-5xl font-semibold font-josefin text-center caret-transparent bg-transparent border-none outline-none focus:ring-0 placeholder-gray-500 w-full" 
+                        className="w-6xl text-2xl md:text-5xl font-semibold font-josefin text-center caret-transparent bg-transparent border-none outline-none focus:ring-0 placeholder-gray-500 w-full" 
                         placeholder="Insira seu telefone Ex.: 45998121611..."
                         value={phone}
                         onChange={(e) => {
-                            setPhone(e.target.value); 
-                            setMessage("");
+                            const inputPhone = e.target.value
+                            if(!/^\d*$/.test(inputPhone)){
+                                setAlert("Apenas números são permitidos!")
+                                return
+                            }
+                            setPhone(inputPhone)
+                            setMessage("")
+                            setAlert("")
+                            setConfirmationMessage("")
+                          
                         }}    
                     /> 
 
-                    {message != "" ? <p className="mt-2 text-red-600">{message}</p> : ""}
+                    {message != "" ? <p className="mt-2 text-red text-1xl px-2 md:text-4xl">{message}</p> : ""}
+
+                    {alert != "" ? <p className="mt-2 text-red text-1xl px-2 md:text-4xl">{alert}</p> : ""}
+
+                    {confirmationMessage != "" ? <p className="mt-4 text-black px-2 text-2xl md:text-4xl font-josefin">{confirmationMessage}</p> : ""}
 
                     <button 
-                        className="bg-transparent text-black border-[4px] rounded-2xl border-purple hover:border-d-purple hover:bg-purple hover:text-white p-2 w-64 rounded-3xl text-3xl duration-300 ease-in-out font-josefin font-semibold mt-20"
+                        className=" text-black border-[4px] rounded-2xl border-purple hover:border-d-purple hover:bg-purple hover:text-white p-2 w-64 rounded-3xl text-3xl duration-300 ease-in-out font-josefin font-semibold mt-20"
                         onClick={handleSearch}
                     >
                             Buscar 
@@ -116,36 +134,46 @@ export default function ConfirmPresence(){
                         
             {isModalOpen && guest && (
                 <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-                    <div className="bg-white p-8 rounded-lg shadow-lg w-[90%] max-w-lg text-center">
-                        <h2 className="text-4xl font-bold mb-4">Confirmação de Presença</h2>
-                        <div className="text-2xl font-semibold mb-4">Convidado Principal: {guest.guest}</div>
-                        <div className="mt-4">
-                            <label>
-                                <input
-                                    type="checkbox"
-                                    checked={confirmations.confirmation_guest}
-                                    onChange={() => handleCheckBoxChange("confirmation_guest")}
-                                />
-                                Confirmar presença
-                            </label>
+                    <div className="bg-white p-8 rounded-lg shadow-lg min-w-[400px] md:min-h-[500px] min-h-[300px] text-center">
+                        <h2 className="text-2xl md:text-4xl font-amsterdan font-regular m-5 md:m-10">Confirmação de Presença</h2>
+                        <div className="p-2">
+                            <div className="text-1xl md:text-2xl font-semibold px-10 flex flex-col justify-center">Convidado Principal: {guest.guest}
+                                <label className="text-1xl font-regular font-amstedan pt-5 pb-2">
+                                    <input
+                                        type="checkbox"
+                                        checked={confirmations.confirmation_guest}
+                                        onChange={() => handleCheckBoxChange("confirmation_guest")}
+                                        className="mx-5 h-3"
+                                    />
+                                    Confirmar presença
+                                </label>
+                                <hr className="w-60 mx-auto my-2"/>
+                            </div>
                         </div>
 
-                        <h3 className="text-2xl font-semibold mt-4">Acompanhantes:</h3>
-                        {guest.companions.map((acompanhante, index) => (
-                            <label key={index} className="block">
-                                <input
-                                    type="checkbox"
-                                    checked={confirmations[`confirm_companion_${index + 1}`]}
-                                    onChange={() => handleCheckBoxChange(`confirm_companion_${index + 1}`)}
-                                />
-                                {acompanhante}
-                            </label>
-                        ))}
+                        <h3 className="text-1xl md:text-2xl font-semibold mb-2">Acompanhantes:</h3>
+                        <div className="flex flex-col justify-center">
+                            {guest.companions.map((acompanhante, index) => (
+                                <div className="flex flex-col text-center justify-center">
+                                    <label key={index} className="block pb-2 text-1xl md:text-2xl">
+                                        <input
+                                            type="checkbox"
+                                            checked={confirmations[`confirm_companion_${index + 1}`]}
+                                            onChange={() => handleCheckBoxChange(`confirm_companion_${index + 1}`)}
+                                            className="mx-5 h-3"
+                                        />
+                                        {acompanhante}
+                                    </label>
+                                    {index !== guest.companions.length -1 ? <hr className="w-60 mx-auto my-2"/> : ""}
+                                </div>
+                            ))}
+                        </div>
+                        
 
-                        <button onClick={handleConfirmPresence} className="bg-green-500 text-black px-6 py-2 rounded-md text-xl mt-6">
+                        <button onClick={handleConfirmPresence} className="bg-green text-white hover:text-black px-2 md:px-6 py-2 md:py-2 rounded-md text-xl mt-6 transition duration-200 ease-in-out">
                             Confirmar Presença
                         </button>
-                        <button onClick={closeModal} className="ml-4 bg-red-500 text-black px-6 py-2 rounded-md text-xl">
+                        <button onClick={closeModal} className="ml-4 text-white bg-red hover:text-black px-2 md:px-6 py-2 md:py-2 rounded-md text-xl transition duration-200 ease-in-out">
                             Fechar
                         </button>
                     </div>
