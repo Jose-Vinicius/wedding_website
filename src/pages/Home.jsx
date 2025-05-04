@@ -24,7 +24,7 @@ export function Home() {
                     <Clock />
                 </section>
 
-                <section id="our_history" className="w-full bg-old_paper md:min-h-[400px] flex flex-col justify-center items-center py-5 px-4">
+                {/* <section id="our_history" className="w-full bg-old_paper md:min-h-[400px] flex flex-col justify-center items-center py-5 px-4">
                     <h2 className="font-amsterdan text-4xl sm:text-6xl pt-10 pb-20 md:py-25">Nossa história</h2>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                         <div className="bg-white p-6 sm:p-8 flex flex-col items-start shadow-xl rounded-lg">
@@ -40,8 +40,8 @@ export function Home() {
                             <span className="text-justify">Em 2024, percebemos que estávamos prontos para dar mais um passo... <a href="#">...</a></span>
                         </div>
                     </div>
-                </section>
-
+                </section> */}
+{/* 
                 <section id="gallery" className="w-full bg-white py-10 sm:py-20 flex flex-col items-center px-4">
                     <h2 className="font-amsterdan text-4xl sm:text-6xl mb-6 sm:mb-10">Nossa galeria</h2>
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 w-full max-w-screen-lg">
@@ -51,7 +51,7 @@ export function Home() {
                         <div className="bg-gray-300 h-40 sm:h-48 col-span-1 sm:col-span-2"></div>
                         <div className="bg-gray-300 h-40 sm:h-48"></div>
                     </div>
-                </section>
+                </section> */}
 
                 <section id="cerimone_place" className="w-full bg-old_paper py-10 sm:py-20 flex flex-col items-center justify-center px-4">
                     <h2 className="font-amsterdan text-4xl sm:text-6xl mb-6 sm:mb-10">Local da cerimônia</h2>
