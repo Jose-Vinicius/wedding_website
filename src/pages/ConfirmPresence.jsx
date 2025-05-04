@@ -6,7 +6,7 @@ import PageTitle from "../components/PageTitle";
 
 import { getGuest, confirmPresence } from "../services/baserowService";
 
-import { randomMessage } from "../services/confirmationMessage";
+import { loadMessage, randomMessage } from "../services/confirmationMessage";
 
 export default function ConfirmPresence(){
     const [phone, setPhone] = useState("")
@@ -17,8 +17,12 @@ export default function ConfirmPresence(){
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [confirmations, setConfirmations] = useState(false);
 
+
+   
+
     async function handleSearch() {
         const result = await getGuest(phone)
+
 
         if(result){
             const transformedGuest = {
@@ -38,8 +42,6 @@ export default function ConfirmPresence(){
             setPhone("");
             setMessage("");
             setIsModalOpen(true);
-
-            console.log(guest)
 
             const initialConfirmations = {
                 confirmation_guest: result[0].confirmation_guest || false,
@@ -67,24 +69,20 @@ export default function ConfirmPresence(){
     function handleCheckBoxChange(field) {
         setConfirmations(prev => {
             const newState = { ...prev, [field]: !prev[field] };
-            console.log("Novo estado de confirmações:", newState); // Log para depuração
             return newState;
         });
     }
 
     async function handleConfirmPresence(){
+        const getListMessage = await loadMessage()
+
         if(guest){
             const response = await confirmPresence(guest.id, confirmations)
             if(response){
-                console.log("presença confirmada")
                 closeModal()
             }
 
-            Object.values(confirmations).includes(true) ? setConfirmationMessage(randomMessage()) : ""
-
-            if(!response){
-                console.log("erro ao confirmar presença")
-            }
+            Object.values(confirmations).includes(true) ? setConfirmationMessage(randomMessage(getListMessage)) : ""
         }
     }
 
@@ -115,7 +113,7 @@ export default function ConfirmPresence(){
                           
                         }}    
                     /> 
-
+                  
                     {message != "" ? <p className="mt-2 text-red text-1xl px-2 md:text-4xl">{message}</p> : ""}
 
                     {alert != "" ? <p className="mt-2 text-red text-1xl px-2 md:text-4xl">{alert}</p> : ""}

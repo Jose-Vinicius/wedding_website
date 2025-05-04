@@ -10,7 +10,7 @@ export default function Gifts(){
     return(
         <>
             <PageTitle title="Sugestão de presentes" />
-            <Header/>
+            <Header modalOpen={false}/>
             <main className="w-full flex flex-col text-center justify-center flex-grow pt-[150px] bg-old_paper">
                 <div>
                     <h1 className="font-josefin font-regular text-4xl md:text-7xl">Sugestão de presentes</h1>
@@ -37,7 +37,7 @@ export default function Gifts(){
 function GiftCard({src, alt, title, price, giftLink, moneyLink}){
     return(
       
-        <div className="w-full max-w-[300px] min-h-[400px] bg-transparent border-[5px] rounded-2xl border-purple text-center flex flex-col items-center p-4 gap-3 drop-shadow-lg sm:w-[250px] sm:min-h-[350px] md:w-[300px] md:min-h-[400px] lg:w-[320px] lg:min-h-[420px]">
+        <div className="w-full max-w-[300px] min-h-[400px] bg-transparent border-[5px] rounded-2xl border-purple text-center flex flex-col items-center p-4 gap-3 drop-shadow-lg sm:w-[250px] sm:min-h-[350px] md:w-[300px] md:min-h-[400px] lg:w-[320px] lg:min-h-[420px] relative z-10">
             <img src={src} alt={alt} className="w-[70%] h-auto object-contain pt-2 drop-shadow-xl"/>
             <h2 className="font-josefin font-regular text-2xl">{title}</h2>
             <p className="font-josefin font-bold text-2xl">R$ {price}</p>
