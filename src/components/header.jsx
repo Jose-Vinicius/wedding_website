@@ -19,6 +19,7 @@ export default function Header({modalOpen}) {
                 <NavLink path="/home" page={location.pathname}>Home</NavLink>
                 <NavLink path="/history" page={location.pathname}>Nossa história</NavLink>
                 <NavLink path="/gallery" page={location.pathname}>Galeria</NavLink>
+                <NavLink path="/dress" page={location.pathname}>Vestimenta</NavLink>
                 <NavLink path="/gifts" page={location.pathname}>Sugestão de presentes</NavLink>
                 <NavLink path="/presence" page={location.pathname}>Confirme sua presença</NavLink>
             </nav>
