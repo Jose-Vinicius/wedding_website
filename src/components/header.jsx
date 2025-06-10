@@ -17,11 +17,11 @@ export default function Header({modalOpen}) {
 
             <nav className={`absolute md:static top-16 left-0 w-full bg-white md:w-auto md:flex md:space-x-6 px-5 md:px-3 transition-all duration-300 ${menuOpen ? "block" : "hidden"}`}>
                 <NavLink path="/home" page={location.pathname}>Home</NavLink>
+                <NavLink path="/gifts" page={location.pathname}>Sugestão de presentes</NavLink>
+                <NavLink path="/dress" page={location.pathname}>Vestimenta</NavLink>
+                <NavLink path="/presence" page={location.pathname}>Confirme sua presença</NavLink>
                 <NavLink path="/history" page={location.pathname}>Nossa história</NavLink>
                 <NavLink path="/gallery" page={location.pathname}>Galeria</NavLink>
-                <NavLink path="/dress" page={location.pathname}>Vestimenta</NavLink>
-                <NavLink path="/gifts" page={location.pathname}>Sugestão de presentes</NavLink>
-                <NavLink path="/presence" page={location.pathname}>Confirme sua presença</NavLink>
             </nav>
         </header>
     );
