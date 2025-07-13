@@ -10,6 +10,9 @@ import ButtonRounded from "../components/ButtonRounded";
 const IMAGE_KIT_USER = import.meta.env.VITE_IMAGEKIT_USER_URL
 const SERVER_BACKEND = import.meta.env.VITE_SERVER_BACKEND
 const PORT_BACKEND = import.meta.env.VITE_PORT_BACKEND || "3001";
+const SERVER_BACKEND_PROD = import.meta.env.VITE_SERVER_BACKEND_PROD
+
+const isENVProd = true
 
 export default function Gifts(){
     const [gifts, setGifts] = useState([]);
@@ -49,7 +52,8 @@ const handlePayment = async (giftName, giftPrice, giftIdentificator) => {
     console.log("Iniciando pagamento para:", giftName, giftPrice, giftIdentificator);
     
 
-    const backEndURL = `${SERVER_BACKEND}:${PORT_BACKEND}/pagamento`;
+    const backEndURL = isENVProd ? `${SERVER_BACKEND_PROD}/pagamento` : `${SERVER_BACKEND}:${PORT_BACKEND}/pagamento`;
+
 
     const response = await fetch(backEndURL, {
         method: "POST",
