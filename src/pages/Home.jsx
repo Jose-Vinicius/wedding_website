@@ -9,6 +9,7 @@ import Clock from "../components/Clock";
 import PageTitle from "../components/PageTitle";
 
 export function Home() {
+
     return (
         <>
             <PageTitle title="Home" />
