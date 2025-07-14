@@ -6,6 +6,7 @@ const base_url = "https://api.baserow.io/api/database"
 const table_guest_id = "443562"
 const table_message_id = "451460"
 const table_gifts_id = "451458"
+const table_gallery_id = "606236"
 const col_phoneNumber_ID = "3442178"
 
 const baserow_api = axios.create({
@@ -70,6 +71,17 @@ export async function getConfirmationMessage() {
 export async function getGifts() {
     try{
         const {data} = await baserow_api.get(`/rows/table/${table_gifts_id}/?user_field_names=true`)
+
+        return data.results
+
+    } catch(e){
+        console.error("erro ao buscar presentes",e)
+    }
+}
+
+export async function getGallery() {
+    try{
+        const {data} = await baserow_api.get(`/rows/table/${table_gallery_id}/?user_field_names=true`)
 
         return data.results
 

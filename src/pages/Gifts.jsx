@@ -48,10 +48,7 @@ const handleCloseModal = () => {setIsModalOpen(false);}
 
 
 const handlePayment = async (giftName, giftPrice, giftIdentificator) => {
-
-    console.log("Iniciando pagamento para:", giftName, giftPrice, giftIdentificator);
-    
-
+ 
     const backEndURL = isENVProd ? `${SERVER_BACKEND_PROD}/pagamento` : `${SERVER_BACKEND}:${PORT_BACKEND}/pagamento`;
 
 
