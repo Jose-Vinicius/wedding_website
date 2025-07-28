@@ -44,7 +44,7 @@ export default function OurHistory(){
                             <p className="font-josefin text-2xl text-justify pb-10">Em 2024, percebemos que estávamos prontos para dar mais um passo. Já compartilhávamos uma vida a dois, mas sentíamos que o casamento seria a celebração do que construímos e do que ainda vamos construir. Foi um momento natural e cheio de amor, onde decidimos oficializar aquilo que já era claro: queremos passar o resto de nossas vidas lado a lado.</p>
                         </div>
                         <div className="md:w-[500px] w-50 md:h-[500px] h-[250px] flex justify-center items-center">
-                            <img src={getImage("casamento.jpeg")} alt="" className="w-full h-full object-cover object-top rounded-xl"/>
+                            
                         </div>
                     </div>
                 </main>

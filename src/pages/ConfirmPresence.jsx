@@ -93,6 +93,13 @@ export default function ConfirmPresence(){
             <main className="w-full flex flex-col pt-[150px] md:pt-[200px] pb-[200px] md:pb-[300px] bg-old_paper justify-center text-center">
                 <h1 className="font-amsterdan font-regular text-4xl md:text-6xl pb-20" >Confirme sua presença</h1>
                 <div className="w-full flex flex-col justify-center items-center pt-20 md:pt-20">
+                    <form 
+                        onSubmit={(e) => {
+                        e.preventDefault();
+                        handleSearch();
+                    }}
+                    className="w-full flex flex-col justify-center items-center pt-20 md:pt-20">
+                        
                     <input 
                         type="text" 
                         name="confirmPresence" 
@@ -114,19 +121,19 @@ export default function ConfirmPresence(){
                         }}    
                     /> 
                   
-                    {message != "" ? <p className="mt-2 text-red text-1xl px-2 md:text-4xl">{message}</p> : ""}
+                        {message != "" ? <p className="mt-2 text-red text-1xl px-2 md:text-4xl">{message}</p> : ""}
 
-                    {alert != "" ? <p className="mt-2 text-red text-1xl px-2 md:text-4xl">{alert}</p> : ""}
+                        {alert != "" ? <p className="mt-2 text-red text-1xl px-2 md:text-4xl">{alert}</p> : ""}
 
-                    {confirmationMessage != "" ? <p className="mt-4 text-black px-2 text-2xl md:text-4xl font-josefin">{confirmationMessage}</p> : ""}
+                        {confirmationMessage != "" ? <p className="mt-4 text-black px-2 text-2xl md:text-4xl font-josefin">{confirmationMessage}</p> : ""}
 
-                    <button 
-                        className=" text-black border-[4px] rounded-2xl border-purple hover:border-d-purple hover:bg-purple hover:text-white p-2 w-64 rounded-3xl text-3xl duration-300 ease-in-out font-josefin font-semibold mt-20"
-                        onClick={handleSearch}
-                    >
-                            Buscar 
-                    </button>
-
+                        <button 
+                            className=" text-black border-[4px] rounded-2xl border-purple hover:border-d-purple hover:bg-purple hover:text-white p-2 w-64 rounded-3xl text-3xl duration-300 ease-in-out font-josefin font-semibold mt-20"
+                            onClick={handleSearch}
+                        >
+                                Buscar 
+                        </button>
+                    </form>
                 </div>
             </main>
                         

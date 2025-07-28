@@ -33,12 +33,19 @@ export default function Gallery(){
                 <h1 className="font-amsterdan font-regular text-5xl md:text-7xl">Nossa galeria</h1>
                 <div className="lg:mx-20 lg:mt-20 mx-5 mt-20 columns-1 sm:columns-2 md:columns-3 lg:columns-4 xl:columns-3 gap-4 space-y-4">
 
-                    {gallery.length > 0 ?  gallery.map((image, index) => {
-                        return (
+                    {gallery.length === 0 ? (
+                        <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 xl:columns-3 gap-4 space-y-4">
+                            {[...Array(9)].map((_, i) => (
+                            <div key={i} />
+                            ))}
+                        </div>
+                        ) : (
+                        <div className="gap-4 space-y-4">
+                            {gallery.map((image, index) => (
                             <ImageGallery key={index} src={getGalleryImage(image.image_name)} alt={`image-${index + 1}`} />
-                        )
-                    }): (<p>carregando imagens</p>)},
-
+                            ))}
+                        </div>
+                    )},
                 </div>
             </main>
             <Footer />
@@ -47,14 +54,27 @@ export default function Gallery(){
 }
 
 function ImageGallery({src, alt}){
-    return(
-        <>
-             <img className="w-full rounded-xl object-cover" src={src} alt={alt} loading="lazy" />
-        </>
-    )
+    const [loaded, setLoaded] = useState(false);
+
+    return (
+        <div className="relative w-full overflow-hidden rounded-xl bg-gray-200 min-h-[200px]">
+        <img
+            src={src}
+            alt={alt}
+            loading="lazy"
+            onLoad={() => setLoaded(true)}
+            className={`w-full object-cover rounded-xl transition-opacity duration-700 ease-in-out ${
+            loaded ? "opacity-100" : "opacity-0"
+            }`}
+        />
+        {!loaded && (
+            <div className="absolute inset-0 bg-gray-300 animate-pulse rounded-xl" />
+        )}
+        </div>
+    );
 }
 
 function getGalleryImage(image) {
     const urlImage = "https://ik.imagekit.io/spwzgep58/gallery/";
-    return `${urlImage}${image}`;
+    return `${urlImage}${image}?tr=w-800,q-70,fo-auto,format=webp`;
 }

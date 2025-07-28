@@ -9,7 +9,7 @@ export default function Header({modalOpen}) {
     return (
         <header className={`bg-white text-black h-24 md:h-28 flex items-center justify-between shadow-md w-screen p-5 fixed top-0 ${!modalOpen ? 'z-50':'z-0'}`}>
             
-            <span className="text-3xl md:text-6xl font-josefin font-light pl-5">José & Vitoria</span>
+            <span className="text-3xl md:text-6xl font-josefin font-light pl-5"><a href="/home">José & Vitoria</a></span>
             
             <button className="md:hidden ml-2" onClick={() => setMenuOpen(!menuOpen)}>
                 {menuOpen ? <X size={32} /> : <Menu size={32} />}
