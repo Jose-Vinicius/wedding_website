@@ -106,7 +106,7 @@ const handlePayment = async (giftName, giftPrice, giftIdentificator) => {
                     className="bg-white rounded-lg shadow-2xl flex flex-col md:flex-row w-full max-w-4xl overflow-hidden relative"
                     onClick={(e) => e.stopPropagation()}
                     >
-                    {/* Imagem do presente */}
+          
                     <div className="w-full md:w-1/2 flex items-center justify-center p-4 md:p-8 bg-gray-100">
                         <img
                         src={`${IMAGE_KIT_USER}/${selectedGift.gift_image}?${imageDimensions}`}
@@ -115,7 +115,6 @@ const handlePayment = async (giftName, giftPrice, giftIdentificator) => {
                         />
                     </div>
 
-                    {/* Conteúdo do presente */}
                     <div className="w-full md:w-1/2 flex flex-col items-center justify-center p-4 md:p-12 text-center space-y-4">
                         <h2 className="text-xl md:text-2xl font-josefin text-gray-600 tracking-[0.1em]">
                         {selectedGift.gift_name}
@@ -136,7 +135,7 @@ const handlePayment = async (giftName, giftPrice, giftIdentificator) => {
                         }
                         />
 
-                        {/* Bandeiras de pagamento */}
+         
                         <div className="flex flex-wrap items-center justify-center space-x-4 mt-4">
                         <img
                             src="https://cdn.visa.com/v2/assets/images/logos/visa/blue/logo.png"
@@ -159,7 +158,7 @@ const handlePayment = async (giftName, giftPrice, giftIdentificator) => {
                         <p className="text-xs text-gray-400">Parcelamento disponível</p>
                     </div>
 
-                    {/* Botão de fechar */}
+         
                     <button
                         onClick={handleCloseModal}
                         className="absolute top-2 right-2 md:top-4 md:right-4 text-gray-400 hover:text-gray-600"

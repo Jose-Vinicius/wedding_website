@@ -10,13 +10,16 @@ export default function GiftCard({gift, giftModalOpen}){
 
     return(
       
-        <div className="w-full max-w-[300px] min-h-[400px] bg-transparent border-[5px] rounded-2xl border-purple text-center flex flex-col items-center p-4 gap-3 drop-shadow-lg sm:w-[250px] sm:min-h-[350px] md:w-[300px] md:min-h-[400px] lg:w-[320px] lg:min-h-[420px] relative z-10">
-            <img src={`${imagekitUrl}/${gift.gift_image}?${imageDimensions}`} alt={gift.gift_name} className="w-[70%] h-auto object-contain pt-2 drop-shadow-xl rounded-md"/>
-            <h2 className="font-josefin font-regular text-xl">{gift.gift_name}</h2>
-            <p className="font-josefin font-bold text-2xl">R$ {gift.gift_price}</p>
-            <div className="flex flex-col items-center gap-1">
-                <ButtonModal text={"Contribuir em dinheiro"} onClick={() => giftModalOpen() } isPaid={gift.gift_paid}/>
+        <div className="w-full max-w-[300px] min-h-[400px] bg-transparent border-[5px] rounded-2xl border-purple text-center flex flex-col items-center p-4 gap-3 drop-shadow-lg sm:w-[250px] sm:min-h-[350px] md:w-[300px] md:min-h-[300px] lg:w-[350px] lg:min-h-[350px] relative z-10">
+            <div className="flex flex-col items-center gap-2 h-full">
+                <img src={`${imagekitUrl}/${gift.gift_image}?${imageDimensions}`} alt={gift.gift_name} className="w-[70%] h-auto object-contain pt-2 drop-shadow-xl rounded-md"/>
+                <h2 className="font-josefin font-regular text-xl">{gift.gift_name}</h2>
+                <p className="font-josefin font-bold text-2xl">R$ {gift.gift_price}</p>
+                <div className="flex justify-center mt-auto">
+                    <ButtonModal text={"Contribuir em dinheiro"} onClick={() => giftModalOpen() } isPaid={gift.gift_paid}/>
+                </div>
             </div>
+            
     </div>
     )
 }

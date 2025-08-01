@@ -139,7 +139,7 @@ export default function ConfirmPresence(){
                         
             {isModalOpen && guest && (
                 <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-                    <div className="bg-white p-8 rounded-lg shadow-lg min-w-[400px] md:min-h-[500px] min-h-[300px] text-center">
+                    <div className="bg-white p-8 rounded-lg shadow-lg min-w-[400px] md:min-h-[400px] min-h-[300px] text-center">
                         <h2 className="text-2xl md:text-4xl font-amsterdan font-regular m-5 md:m-10">Confirmação de Presença</h2>
                         <div className="p-2">
                             <div className="text-1xl md:text-2xl font-semibold px-10 flex flex-col justify-center">Convidado Principal: {guest.guest}
@@ -148,7 +148,7 @@ export default function ConfirmPresence(){
                                         type="checkbox"
                                         checked={confirmations.confirmation_guest}
                                         onChange={() => handleCheckBoxChange("confirmation_guest")}
-                                        className="mx-5 h-3"
+                                        className="mx-5 h-3 scale-[2]"
                                     />
                                     Confirmar presença
                                 </label>
@@ -165,7 +165,7 @@ export default function ConfirmPresence(){
                                             type="checkbox"
                                             checked={confirmations[`confirm_companion_${index + 1}`]}
                                             onChange={() => handleCheckBoxChange(`confirm_companion_${index + 1}`)}
-                                            className="mx-5 h-3"
+                                            className="mx-5 h-3 scale-[2]"
                                         />
                                         {acompanhante}
                                     </label>
