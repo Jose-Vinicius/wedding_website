@@ -26,7 +26,7 @@ export default function Gallery(){
 
 
     return(
-        <>
+        <div className="min-h-screen flex flex-col">
             <PageTitle title="Galeria" />
             <Header />
             <main className="w-full flex flex-col pt-[200px] pb-[50px] bg-old_paper justify-center text-center">
@@ -49,7 +49,7 @@ export default function Gallery(){
                 </div>
             </main>
             <Footer />
-        </>
+        </div>
     )
 }
 

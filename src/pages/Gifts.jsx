@@ -20,7 +20,7 @@ export default function Gifts(){
     const [selectedGift, setSelectedGift] = useState(null);
 
 
-    const imageDimensions = "tr=w-500,h-500,fo-pad"
+    const imageDimensions = "tr=w-500,h-500,cm-pad_resize,bg-FFFFFF"
 
     useEffect(() => {
         async function loadGifts() {
@@ -73,7 +73,7 @@ const handlePayment = async (giftName, giftPrice, giftIdentificator) => {
 
 }
     return(
-        <>
+        <div className="min-h-screen flex flex-col">
             <PageTitle title="Sugestão de presentes" />
             <Header modalOpen={false}/>
             <main className="w-full flex flex-col text-center justify-center flex-grow pt-[150px] bg-old_paper">
@@ -178,6 +178,6 @@ const handlePayment = async (giftName, giftPrice, giftIdentificator) => {
                 )}
 
             <Footer/>
-        </>
+        </div>
     );
 }
