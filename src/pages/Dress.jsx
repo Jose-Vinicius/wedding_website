@@ -22,7 +22,7 @@ export default function Dress() {
                         <h2 className="font-josefin font-bold text-4xl pb-4">Para eles</h2>
                         <div className="flex flex-wrap justify-center gap-4">
                             <ImageDress src={getDressImage("he_dress_1.jpeg")} alt="look masculino 1" />
-                            <ImageDress src={getDressImage("he_dress_2.jpeg")} alt="look masculino 2" />
+                            <ImageDress src={getDressImage("he_dress_2_.jpg")} alt="look masculino 2" />
                             <ImageDress src={getDressImage("he_dress_3.jpeg")} alt="look masculino 2" />
                         </div>
                     </div>
