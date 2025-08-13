@@ -22,7 +22,7 @@ export default function ConfirmPresence(){
 
     async function handleSearch() {
          if(!phone || phone.trim().length < 11){
-            setAlert("Tamanho inválido")
+            setAlert("Por favor, insira um número de telefone válido com no mínimo 9 dígitos.")
             return
         }
 
