@@ -6,6 +6,7 @@ import Dress from "./pages/Dress.jsx"
 import Gifts from "./pages/Gifts.jsx"
 import Gallery from "./pages/Gallerry.jsx"
 import ConfirmPresence from "./pages/ConfirmPresence.jsx"
+import ConfirmedPresence from "./pages/ConfirmedPresence.jsx";
 
 export default function App() {
   return (
@@ -19,6 +20,7 @@ export default function App() {
           <Route path="/gallery" element={<Gallery />}/>
           <Route path="/presence" element={<ConfirmPresence />}/>
           <Route path="/history" element={<OurHistory />}/>
+          <Route path="/admin/confirmedpresence" element={<ConfirmedPresence />}/>
         </Routes>
       </Router>
     </Fragment>

@@ -89,3 +89,34 @@ export async function getGallery() {
         console.error("erro ao buscar galeria",e)
     }
 }
+
+export async function getConfirmedGuests() {
+    try {
+        const { data } = await baserow_api.get(`/rows/table/${table_guest_id}/?user_field_names=true`);
+
+        const confirmed = data.results
+            .filter(row =>
+                row.confirmation_guest === true ||
+                row.confirm_companion_1 === true ||
+                row.confirm_companion_2 === true ||
+                row.confirm_companion_3 === true ||
+                row.confirm_companion_4 === true ||
+                row.confirm_companion_5 === true
+            )
+            .map(row => ({
+                guest: row.guest,
+                confirmedCompanions: [
+                    row.confirm_companion_1 ? row.companion_1 : null,
+                    row.confirm_companion_2 ? row.companion_2 : null,
+                    row.confirm_companion_3 ? row.companion_3 : null,
+                    row.confirm_companion_4 ? row.companion_4 : null,
+                    row.confirm_companion_5 ? row.companion_5 : null
+                ].filter(Boolean)
+            }));
+
+        return confirmed;
+    } catch (e) {
+        console.error("Erro ao buscar confirmados", e);
+        return [];
+    }
+}
