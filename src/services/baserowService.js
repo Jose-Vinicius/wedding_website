@@ -19,24 +19,31 @@ const baserow_api = axios.create({
 
 export async function getGuest(phoneNumber){
     try{
-        const { data } = await baserow_api.get(`/rows/table/${table_guest_id}/?user_field_names=true&filter__field_${col_phoneNumber_ID}__contains=${phoneNumber}`)
+        const { data } = await baserow_api.get(
+            `/rows/table/${table_guest_id}/?user_field_names=true&filter__field_${col_phoneNumber_ID}__contains=${phoneNumber}`
+        )
 
         const result = data.results
 
-        const guestFilter = result.filter(guest => {
-            return String(guest.phone_number).trim() === String(phoneNumber).trim() ? guest : ""
-        })
+        // Se quiser buscar aproximado, não faz sentido exigir igualdade exata
+        // Caso ainda queira uma limpeza mínima (tirar espaços e comparar sem formatação):
+        // const guestFilter = result.filter(guest => 
+        //     String(guest.phone_number).replace(/\D/g, "")
+        //         .includes(String(phoneNumber).replace(/\D/g, ""))
+        // )
 
-        if (result.length > 0 && guestFilter.length > 0){
+        if (result.length > 0) {
             return result
         }
-        
 
+        return null
+        
     } catch(error){
         console.error("Erro ao buscar convidado", error.response?.data || error.message)
         return null
     }
 }
+
 
 export async function confirmPresence(guestID, confirmations){
     try{
