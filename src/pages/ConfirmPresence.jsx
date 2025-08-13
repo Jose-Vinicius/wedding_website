@@ -21,6 +21,12 @@ export default function ConfirmPresence(){
    
 
     async function handleSearch() {
+         if(!phone || phone.trim().length < 11){
+            setAlert("Tamanho inválido")
+            return
+        }
+
+
         const result = await getGuest(phone)
 
 
@@ -113,6 +119,7 @@ export default function ConfirmPresence(){
                                 setAlert("Apenas números são permitidos!")
                                 return
                             }
+
                             setPhone(inputPhone)
                             setMessage("")
                             setAlert("")

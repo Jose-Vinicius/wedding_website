@@ -25,13 +25,6 @@ export async function getGuest(phoneNumber){
 
         const result = data.results
 
-        // Se quiser buscar aproximado, não faz sentido exigir igualdade exata
-        // Caso ainda queira uma limpeza mínima (tirar espaços e comparar sem formatação):
-        // const guestFilter = result.filter(guest => 
-        //     String(guest.phone_number).replace(/\D/g, "")
-        //         .includes(String(phoneNumber).replace(/\D/g, ""))
-        // )
-
         if (result.length > 0) {
             return result
         }
