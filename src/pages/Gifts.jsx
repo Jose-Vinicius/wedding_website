@@ -18,6 +18,7 @@ export default function Gifts(){
     const [gifts, setGifts] = useState([]);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [selectedGift, setSelectedGift] = useState(null);
+    const [isLoading, setIsLoading] = useState(false);
 
 
     const imageDimensions = "tr=w-500,h-500,cm-pad_resize,bg-FFFFFF"
@@ -48,6 +49,8 @@ const handleCloseModal = () => {setIsModalOpen(false);}
 
 
 const handlePayment = async (giftName, giftPrice, giftIdentificator) => {
+
+    setIsLoading(true);
  
     const backEndURL = isENVProd ? `${SERVER_BACKEND_PROD}/pagamento` : `${SERVER_BACKEND}:${PORT_BACKEND}/pagamento`;
 
@@ -60,18 +63,22 @@ const handlePayment = async (giftName, giftPrice, giftIdentificator) => {
           price: giftPrice,
           external_reference: giftIdentificator,  
         })
-      });
-
-    const data = await response.json();
-
-
-    if (data.init_point) {
-        window.location.href = data.init_point;
-    } else {
-        alert("Erro ao gerar link de pagamento");
+      })
+      .then(res => res.json())
+      .then(data => {
+        if (data.init_point) {
+            window.location.href = data.init_point;
+        } else {
+            alert("Erro ao gerar link de pagamento");
+            setIsLoading(false);
+        }
+      })
+      .catch(e => {
+        console.error("Erro ao processar pagamento", e);
+        alert("Erro ao processar pagamento");
+        setIsLoading(false);
+      })
     }
-
-}
     return(
         <div className="min-h-screen flex flex-col">
             <PageTitle title="Sugestão de presentes" />
@@ -125,14 +132,17 @@ const handlePayment = async (giftName, giftPrice, giftIdentificator) => {
                         </p>
 
                         <ButtonRounded
-                        text={"Faça o pagamento"}
-                        onClick={() =>
-                            handlePayment(
-                            selectedGift.gift_name,
-                            selectedGift.gift_price,
-                            selectedGift.gift_identificator
-                            )
-                        }
+                            text={isLoading ? "Carregando..." : "Faça o pagamento"}
+                            onClick={() =>
+                                !isLoading &&
+                                handlePayment(
+                                    selectedGift.gift_name,
+                                    selectedGift.gift_price,
+                                    selectedGift.gift_identificator
+                                )
+                            }
+
+                                disabled={isLoading}
                         />
 
          
