@@ -26,9 +26,7 @@ export default function ConfirmPresence(){
             return
         }
 
-
         const result = await getGuest(phone)
-
 
         if(result){
             const transformedGuest = {
@@ -136,7 +134,6 @@ export default function ConfirmPresence(){
 
                         <button 
                             className=" text-black border-[4px] rounded-2xl border-purple hover:border-d-purple hover:bg-purple hover:text-white p-2 w-64 rounded-3xl text-3xl duration-300 ease-in-out font-josefin font-semibold mt-20"
-                            onClick={handleSearch}
                         >
                                 Buscar 
                         </button>

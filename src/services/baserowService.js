@@ -56,6 +56,22 @@ export async function confirmPresence(guestID, confirmations){
     }
 }
 
+export async function saveReserverdGift(guest, giftID){
+    console.log(guest)
+    try{
+        const payload ={
+            gift_reserved: true,
+            gift_reserved_phone: guest.phone,
+            gift_payer_name: guest.guest
+        }
+
+        const response = await baserow_api.patch(`/rows/table/${table_gifts_id}/${giftID}/?user_field_names=true`, payload)
+    } catch (e){
+        console.error("erro ao salvar reserva de presente", e)
+    }
+}
+
+
 
 export async function getConfirmationMessage() {
     try{
@@ -120,3 +136,4 @@ export async function getConfirmedGuests() {
         return [];
     }
 }
+

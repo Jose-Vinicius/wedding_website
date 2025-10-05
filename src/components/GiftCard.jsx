@@ -15,8 +15,12 @@ export default function GiftCard({gift, giftModalOpen}){
                 <img src={`${imagekitUrl}/${gift.gift_image}?${imageDimensions}`} alt={gift.gift_name} className="w-[70%] h-auto object-contain pt-2 drop-shadow-xl rounded-md"/>
                 <h2 className="font-josefin font-regular text-xl">{gift.gift_name}</h2>
                 <p className="font-josefin font-bold text-2xl">R$ {gift.gift_price}</p>
-                <div className="flex justify-center mt-auto">
-                    <ButtonModal text={"Contribuir em dinheiro"} onClick={() => giftModalOpen() } isPaid={gift.gift_paid}/>
+                <div className="flex flex-wrap justify-center mt-auto">
+
+                    {!gift.gift_paid && <ButtonModal text={"Contribuir em dinheiro"} onClick={() => giftModalOpen("buy") } isGifted={gift.gift_paid || gift.gift_reserved}/>}
+
+                    {!gift.gift_reserved && <ButtonModal text={"Vou dar o presente de outra forma"} onClick={() => giftModalOpen("reserve") } isGifted={gift.gift_paid || gift.gift_reserved}/>  }
+                     
                 </div>
             </div>
             
