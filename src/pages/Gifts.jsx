@@ -288,7 +288,7 @@ const handlePayment = async (giftName, giftPrice, giftIdentificator) => {
                         <form className="w-full" onSubmit={handleSearchGuest}>
                             <input 
                                 type="text"
-                                className="w-full text-1xl md:text-2xl font-semibold font-josefin text-center caret-transparent bg-transparent border-none outline-none focus:ring-0 placeholder-gray-500" 
+                                className="w-full text-xl md:text-2xl font-semibold font-josefin text-center caret-transparent bg-transparent border-none outline-none focus:ring-0 placeholder-gray-500 p-6" 
                                 placeholder="Insira seu telefone Ex.: 45998121611..." 
                                 value={phone}
                                 onChange={(e) => {
