@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 
 import Header from "../components/header";
@@ -14,9 +13,9 @@ export function Home() {
         <>
             <PageTitle title="Home" />
             <Header />
-            <main className="flex-grow pt-[100px]">
+            <main className="flex-grow pt-[20px]">
 
-                <section id="banner" className="text-center w-full bg-old_paper min-h-screen flex flex-col justify-center items-center px-4">
+                <section id="banner" className="text-center w-full bg-home-banner bg-center min-h-screen flex flex-col justify-center items-center px-4">
                     <p className="font-amsterdan text-4xl sm:text-6xl md:text-7xl py-6 sm:py-10">José e Vitória</p>
                     <p className="font-josefin font-light text-xl sm:text-3xl md:text-4xl py-4 sm:py-6">22 de Novembro de 2025</p>
                 </section>

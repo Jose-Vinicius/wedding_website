@@ -6,7 +6,6 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    
     extend: {
       spacing:{
         "500": '31.25rem'
@@ -16,6 +15,9 @@ export default {
         "amsterdan":["Amsterdam Four", "sans-serif"],
         "adamina": ["Adamina", "sans-serif"],
         "meaCulpa": ["Mea Culpa", "sans-serif"],
+      },
+      backgroundImage:{
+        'home-banner': "url('/capa-home.jpeg')",
       }
     },
     colors:{
