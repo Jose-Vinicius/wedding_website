@@ -29,7 +29,7 @@ export default function Gallery(){
         <div className="min-h-screen flex flex-col">
             <PageTitle title="Galeria" />
             <Header />
-            <main className="w-full flex flex-col pt-[200px] pb-[50px] bg-old_paper justify-center text-center">
+            <main className="w-full flex flex-grow flex-col pt-[200px] pb-[50px] bg-old_paper justify-center text-center">
                 <h1 className="font-amsterdan font-regular text-5xl md:text-7xl">Nossa galeria</h1>
                 <div className="lg:mx-20 lg:mt-20 mx-5 mt-20 columns-1 sm:columns-2 md:columns-3 lg:columns-4 xl:columns-3 gap-4 space-y-4">
 
