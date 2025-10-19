@@ -18,6 +18,7 @@ export default {
       },
       backgroundImage:{
         'home-banner': "url('/capa-home.jpeg')",
+        'home-banner-mobile': "url('/capa-home-mobile.jpeg')",
       }
     },
     colors:{

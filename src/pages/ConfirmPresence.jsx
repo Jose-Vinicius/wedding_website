@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-key */
 import React, {useState} from "react";
 
 import Header from "../components/header";
@@ -7,6 +8,7 @@ import PageTitle from "../components/PageTitle";
 import { getGuest, confirmPresence } from "../services/baserowService";
 
 import { loadMessage, randomMessage } from "../services/confirmationMessage";
+import { Link } from "react-router-dom";
 
 export default function ConfirmPresence(){
     const [phone, setPhone] = useState("")
@@ -126,14 +128,26 @@ export default function ConfirmPresence(){
                         }}    
                     /> 
                   
-                        {message != "" ? <p className="mt-2 text-red text-1xl px-2 md:text-4xl">{message}</p> : ""}
+                        {message != "" ? 
+                        <p className="mt-2 text-red text-1xl px-2 md:text-4xl">{message}</p>: ""}
 
                         {alert != "" ? <p className="mt-2 text-red text-1xl px-2 md:text-4xl">{alert}</p> : ""}
 
-                        {confirmationMessage != "" ? <p className="mt-4 text-black px-2 text-2xl md:text-4xl font-josefin">{confirmationMessage}</p> : ""}
+                        {confirmationMessage != "" ? (
+                            <>
+                                <p className="mt-4 text-black px-2 text-2xl md:text-4xl font-josefin">{confirmationMessage}</p>
+                                <br/>
+                                <p className="mt-2 text-black px-2 text-2xl font-bold md:text-4xl font-josefin">Confira tambem nossa lista de presentes</p>
+                                <Link to={"/gifts"}>
+                                    <button className=" text-black border-[4px] rounded-2xl border-purple hover:border-d-purple hover:bg-purple hover:text-white p-4 w-auto rounded-3xl text-3xl duration-300 ease-in-out font-josefin font-semibold mt-5">
+                                        Ir para a lista de presentes 
+                                    </button>
+                                </Link>
+                            </>
+                        ) : ""}
 
                         <button 
-                            className=" text-black border-[4px] rounded-2xl border-purple hover:border-d-purple hover:bg-purple hover:text-white p-2 w-64 rounded-3xl text-3xl duration-300 ease-in-out font-josefin font-semibold mt-20"
+                            className=" text-black border-[4px] rounded-2xl border-purple hover:border-d-purple hover:bg-purple hover:text-white p-2 w-64 rounded-3xl text-3xl duration-300 ease-in-out font-josefin font-semibold mt-10"
                         >
                                 Buscar 
                         </button>

@@ -15,9 +15,9 @@ export function Home() {
             <Header />
             <main className="flex-grow pt-[20px]">
 
-                <section id="banner" className="text-center w-full bg-home-banner bg-center min-h-screen flex flex-col justify-center items-center px-4">
-                    <p className="font-amsterdan text-4xl sm:text-6xl md:text-7xl py-6 sm:py-10">José e Vitória</p>
-                    <p className="font-josefin font-light text-xl sm:text-3xl md:text-4xl py-4 sm:py-6">22 de Novembro de 2025</p>
+                <section id="banner" className="text-center w-full md:bg-home-banner bg-center bg-home-banner-mobile bg-[length:100%_auto] bg-no-repeat min-h-screen flex flex-col pt-36 items-center px-4">
+                    <p className="font-amsterdan text-4xl sm:text-6xl md:text-7xl py-6 sm:py-10 text-old_paper">José e Vitória</p>
+                    <p className="font-josefin font-bold text-xl sm:text-3xl md:text-3xl py-4 sm:py-6 text-old_paper">22 de Novembro de 2025</p>
                 </section>
 
                 <section id="counter" className="text-center w-full bg-white min-h-[250px] md:min-h-[350px]  flex flex-col sm:flex-row justify-center items-center gap-4 md:gap-10 px-4">
