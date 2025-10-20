@@ -43,7 +43,7 @@ export default function OurHistory(){
                             <h2 className="font-josefin font-bold text-4xl py-4 text-center">Como decidimos nos casar ?</h2>
                             <p className="font-josefin text-2xl text-justify pb-10">Em 2024, percebemos que estávamos prontos para dar mais um passo. Já compartilhávamos uma vida a dois, mas sentíamos que o casamento seria a celebração do que construímos e do que ainda vamos construir. Foi um momento natural e cheio de amor, onde decidimos oficializar aquilo que já era claro: queremos passar o resto de nossas vidas lado a lado.</p>
                         </div>
-                        <div className="md:w-[500px] w-50 md:h-[650px] h-[250px] flex justify-center items-center">
+                        <div className="md:w-[500px] w-50 h-[650px] flex justify-center items-center">
                             <img src={getImage("pedido_casamento.jpeg")} alt="" className="w-full h-full object-cover rounded-xl"/>
                         </div>
                     </div> }
